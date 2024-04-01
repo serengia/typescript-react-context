@@ -25,5 +25,15 @@ type TimersContextProviderProps = {
 export default function TimersContextProvider({
   children,
 }: TimersContextProviderProps) {
-  return <TimerContext.Provider value={null}>{children}</TimerContext.Provider>;
+  const cxt: TimersContextValue = {
+    timers: [],
+    isRunning: false,
+    addTimer: (timerData) => {
+      console.log(timerData);
+    },
+    startTimers: () => {},
+    stopTimers: () => {},
+  };
+
+  return <TimerContext.Provider value={cxt}>{children}</TimerContext.Provider>;
 }
